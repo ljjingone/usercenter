@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.js"></script>
+    </head>
+    <body>
+        <input accept="image/*" name="upimage" id="upload_file" type="file">
+        <textarea id="base64_output" name="Word" style=" width:820px"></textarea>
+        <img src="" id="img" alt="" />
+        <script type="text/javascript">
+            document.getElementById("upload_file").onchange = function () {
+                gen_base64('img');
+            };
+            function $_(id) {
+                    return document.getElementById(id);
+            }
+            function gen_base64(id) {
+                var file = $_('upload_file').files[0];
+                r = new FileReader();  //本地预览
+                console.log(r.result)
+                r.onload = function(){
+                	console.log(r.result)
+//                  $_(id).src = r.result;
+                }
+                r.readAsDataURL(file);    //Base64
+            }
+        </script>
+    </body>
+</html>
